@@ -1,10 +1,5 @@
 import random
 
-# variables to define user score and computer's score
-
-user_score=0
-comp_score=0
-
 #function that takes the users choice as input
 
 def user_choice():
@@ -34,53 +29,58 @@ def comp_choice():
     return comp_input
 
 
+# variables to define user score and computer's score
+
+user_score=0
+comp_score=0
 #code from here on contains logic to decide the winner and track the score
-cont_play=""
-while cont_play not in ["no", "n", "N", "NO"]:
-    user_input= user_choice()
-    comp_input=comp_choice()
-    if(comp_input=="r"):
-        if(user_input=="r"):
-            print(" _____________ ITS A TIE, TRY AGAIN_____________")
-        if(user_input=="p"):
-            user_score +=1
-            print("______________ PLAYER WON__________________")
-        if(user_input=="s"):
-            print("______________COMPUTER WON,BETTER LUCK NEXT TIME______________")
-            comp_score +=1
-    if(comp_input=="p"):
-        if(user_input=="r"):
-            print("______________COMPUTER WON,BETTER LUCK NEXT TIME______________")
-            comp_score += 1
-        if(user_input=="p"):
-            print(" _____________ ITS A TIE, TRY AGAIN_____________")
-        if(user_input=="s"):
-            user_score += 1
-            print("______________ PLAYER WON__________________")
+def play():
+  cont_play=""
 
-    if(comp_input=="s"):
-        if(user_input=="r"):
-            user_score += 1
-            print("______________ PLAYER WON__________________")
-        if(user_input=="p"):
-            print("______________COMPUTER WON,BETTER LUCK NEXT TIME______________")
-            comp_score += 1
-        if(user_input=="s"):
-            print(" _____________ ITS A TIE, TRY AGAIN_____________")
+  # variables to define user score and computer's score
 
-    print("Do you want to play further ?   [y/n]")
-    cont_play=input("Enter your choice :")
-    if(cont_play in ["yes","y","Y","YES"]):
-        pass
-    elif(cont_play in ["no","n","N","NO"]):
-        break
-    else:
-        print("player's score is: " + str(user_score))
-        print("computers score is :" + str(comp_score))
-        break
+  global user_score
+  global comp_score
+  while cont_play not in ["no", "n", "N", "NO"]:
+      user_input= user_choice()
+      comp_input=comp_choice()
+      if(comp_input=="r"):
+          if(user_input=="r"):
+              print(" _____________ ITS A TIE, TRY AGAIN_____________")
+          if(user_input=="p"):
+              user_score +=1
+              print("______________ PLAYER WON__________________")
+          if(user_input=="s"):
+              print("______________COMPUTER WON,BETTER LUCK NEXT TIME______________")
+              comp_score +=1
+      if(comp_input=="p"):
+          if(user_input=="r"):
+              print("______________COMPUTER WON,BETTER LUCK NEXT TIME______________")
+              comp_score += 1
+          if(user_input=="p"):
+              print(" _____________ ITS A TIE, TRY AGAIN_____________")
+          if(user_input=="s"):
+              user_score += 1
+              print("______________ PLAYER WON__________________")
 
+      if(comp_input=="s"):
+          if(user_input=="r"):
+              user_score += 1
+              print("______________ PLAYER WON__________________")
+          if(user_input=="p"):
+              print("______________COMPUTER WON,BETTER LUCK NEXT TIME______________")
+              comp_score += 1
+          if(user_input=="s"):
+              print(" _____________ ITS A TIE, TRY AGAIN_____________")
 
+      print("Do you want to play further ?   [y/n]")
+      cont_play=input("Enter your choice :")
+      if(cont_play in ["yes","y","Y","YES"]):
+          pass
+      elif(cont_play in ["no","n","N","NO"]):
+          break
 
-
-
-
+if __name__=='__main__':
+  play()
+  print("player's score is: " + str(user_score))
+  print("computers score is :" + str(comp_score))
